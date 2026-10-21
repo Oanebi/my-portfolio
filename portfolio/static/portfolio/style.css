@@ -1,0 +1,60 @@
+
+/* Colour palette */
+:root {
+    --color-background: #f8f7f2;
+    --color-text: #292d2b;
+    --color-accent: #245c45;
+    --color-border: #dedfd8;
+}
+
+/* Basic reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+/* Shared page layout */
+header,
+main,
+footer {
+    width: min(100% - 2rem, 960px);
+    margin-inline: auto;
+}
+
+header {
+    padding-block: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+nav a {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+main {
+    min-height: 65vh;
+    padding-block: 5rem;
+}
+
+h1,
+h2 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+footer {
+    padding-block: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9rem;
+}
