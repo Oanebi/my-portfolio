@@ -1,41 +1,61 @@
 
-/* Colour palette */
+/* --------------------------------------------------
+   1. Design tokens
+-------------------------------------------------- */
 :root {
     --color-background: #f8f7f2;
     --color-surface: #ffffff;
     --color-text: #292d2b;
     --color-muted: #626963;
     --color-accent: #245c45;
+    --color-accent-hover: #194532;
     --color-border: #dedfd8;
+
+    --content-width: 960px;
+    --radius-card: 12px;
 }
 
-/* Basic reset */
+/* --------------------------------------------------
+   2. Reset and base styles
+-------------------------------------------------- */
 * {
     box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
 }
 
 body {
     margin: 0;
     background-color: var(--color-background);
     color: var(--color-text);
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.7;
 }
 
-/* Shared page layout */
+a {
+    color: var(--color-accent);
+}
+
+a:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+/* --------------------------------------------------
+   3. Shared layout
+-------------------------------------------------- */
 header,
 main,
 footer {
-    width: min(100% - 2rem, 960px);
+    width: min(100% - 2rem, var(--content-width));
     margin-inline: auto;
 }
 
 header {
-    padding-block: 1.5rem;
+    padding-block: 1.25rem;
     border-bottom: 1px solid var(--color-border);
 }
 
@@ -47,6 +67,7 @@ nav a {
 
 nav a:hover {
     text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 main {
@@ -54,72 +75,142 @@ main {
     padding-block: 4rem;
 }
 
-/* Typography */
+/* --------------------------------------------------
+   4. Typography
+-------------------------------------------------- */
 h1,
 h2,
 h3 {
     line-height: 1.2;
+    text-wrap: balance;
 }
 
 h1 {
-    max-width: 750px;
+    max-width: 780px;
     margin-block: 1rem 1.5rem;
-    font-size: clamp(2.25rem, 6vw, 4rem);
-    letter-spacing: -0.04em;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
 }
 
 h2 {
-    margin-bottom: 1.5rem;
-    font-size: clamp(1.6rem, 4vw, 2.25rem);
+    max-width: 720px;
+    margin-block: 0.75rem 1.5rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    letter-spacing: -0.03em;
 }
 
 h3 {
-    font-size: 1.35rem;
+    margin-block: 0 0.75rem;
+    font-size: 1.2rem;
 }
 
 p {
     max-width: 680px;
+    margin-block: 0 1.25rem;
 }
 
-section > p:first-child {
+/* Small uppercase section labels */
+.eyebrow {
     color: var(--color-accent);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
 }
 
-/* Welcome section */
-section[aria-labelledby="welcome-heading"] {
-    padding-block: 2rem 4rem;
+/* --------------------------------------------------
+   5. Profile introduction
+-------------------------------------------------- */
+.profile-hero {
+    padding-block: 1.5rem 5rem;
 }
 
-section[aria-labelledby="welcome-heading"] p:not(:first-child) {
+.profile-hero .eyebrow {
+    margin-bottom: 1.5rem;
+}
+
+.profile-intro {
+    max-width: 680px;
+    color: var(--color-text);
+    font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+    line-height: 1.65;
+}
+
+.profile-description {
     color: var(--color-muted);
-    font-size: 1.05rem;
+    font-size: 1.02rem;
 }
 
-/* Featured project */
-section[aria-labelledby="projects-heading"] {
-    padding-top: 2rem;
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    font-weight: 700;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+}
+
+.profile-link:hover {
+    color: var(--color-accent-hover);
+}
+
+.profile-link span {
+    transition: transform 180ms ease;
+}
+
+.profile-link:hover span {
+    transform: translateY(3px);
+}
+
+/* --------------------------------------------------
+   6. Personal journey
+-------------------------------------------------- */
+.profile-about {
+    padding-block: 3.5rem;
     border-top: 1px solid var(--color-border);
 }
 
-article {
-    padding: 1.5rem;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-}
-
-article h3 {
-    margin-top: 0;
-}
-
-article p {
+.profile-about p:not(.eyebrow) {
     color: var(--color-muted);
 }
 
-/* Footer */
+/* --------------------------------------------------
+   7. Areas of interest
+-------------------------------------------------- */
+.profile-interests {
+    padding-top: 3.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.interest-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.interest-card {
+    padding: 1.5rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+}
+
+.interest-card h3 {
+    color: var(--color-accent);
+}
+
+.interest-card p {
+    margin-bottom: 0;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+}
+
+/* --------------------------------------------------
+   8. Footer
+-------------------------------------------------- */
 footer {
     padding-block: 1.5rem;
     border-top: 1px solid var(--color-border);
@@ -127,24 +218,55 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Respect visitors who prefer less motion */
+footer p {
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------
+   9. Motion preferences
+-------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
 
-/* Small screens */
+/* --------------------------------------------------
+   10. Responsive layout
+-------------------------------------------------- */
+@media (max-width: 760px) {
+    .interest-list {
+        grid-template-columns: 1fr;
+    }
+
+    .interest-card {
+        padding: 1.25rem;
+    }
+}
+
 @media (max-width: 600px) {
     main {
         padding-block: 2.5rem;
     }
 
-    section[aria-labelledby="welcome-heading"] {
-        padding-block: 1rem 3rem;
+    .profile-hero {
+        padding-block: 1rem 3.5rem;
     }
 
-    article {
-        padding: 1rem;
+    .profile-about,
+    .profile-interests {
+        padding-block: 2.5rem;
+    }
+
+    h1 {
+        font-size: clamp(2.3rem, 10vw, 3.5rem);
     }
 }

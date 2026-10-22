@@ -4,42 +4,83 @@
 {% block title %}Home | My Developer Portfolio{% endblock %}
 
 {% block meta_description %}
-Explore my developer portfolio, projects, and journey building useful web applications.
+Meet a geologist turned aspiring software developer, exploring full-stack development and AI-native engineering to build useful solutions.
 {% endblock %}
 
 {% block content %}
-<section aria-labelledby="welcome-heading">
-    <p>DEVELOPER PORTFOLIO</p>
+<section class="profile-hero" aria-labelledby="welcome-heading">
+    <p class="eyebrow">GEOLOGY · SOFTWARE · PROBLEM SOLVING</p>
 
-    <h1 id="welcome-heading">Building useful things for the web.</h1>
+    <h1 id="welcome-heading">
+        From understanding the Earth to building intelligent solutions.
+    </h1>
+
+    <p class="profile-intro">
+        I'm a geologist turned aspiring software developer, passionate
+        about solving problems and building technology that makes life easier.
+    </p>
+
+    <p class="profile-description">
+        I'm growing as a full-stack developer, working across web technologies
+        and exploring AI-native approaches to building useful, practical
+        applications. My journey brings together scientific thinking,
+        curiosity, and a drive to turn ideas into solutions that matter.
+    </p>
+
+    <a class="profile-link" href="#about">
+        A little more about me
+        <span aria-hidden="true">↓</span>
+    </a>
+</section>
+
+<section class="profile-about" id="about" aria-labelledby="about-heading">
+    <p class="eyebrow">MY JOURNEY</p>
+
+    <h2 id="about-heading">Curiosity led me here. Problem solving keeps me going.</h2>
 
     <p>
-        I'm a developer learning and building with modern web technologies.
-        I enjoy solving practical problems and turning ideas into useful
-        applications.
+        My background in geology taught me to investigate complex questions,
+        look for patterns, and approach problems systematically. I'm bringing
+        that mindset into software development, where I can use technology
+        to create practical tools and better experiences.
     </p>
 
     <p>
-        This portfolio documents my projects, the technologies I use,
-        and what I'm learning along the way.
+        I'm learning by building, experimenting, and improving with every
+        project. I'm especially interested in full-stack web development
+        and how AI can help us build useful solutions more thoughtfully.
     </p>
 </section>
 
-<section aria-labelledby="projects-heading">
-    <h2 id="projects-heading">Featured project</h2>
+<section class="profile-interests" aria-labelledby="interests-heading">
+    <p class="eyebrow">WHAT I'M EXPLORING</p>
 
-    <article>
-        <h3>Inventory &amp; Audit Application</h3>
+    <h2 id="interests-heading">Where I'm focusing my energy</h2>
 
-        <p>
-            An application focused on inventory management and audit
-            workflows, built with React, Express, and PostgreSQL.
-        </p>
+    <div class="interest-list">
+        <article class="interest-card">
+            <h3>Full-stack development</h3>
+            <p>
+                Building web applications across the frontend, backend,
+                and data layer.
+            </p>
+        </article>
 
-        <p>
-            This project reflects my interest in building practical
-            applications that help organise information and processes.
-        </p>
-    </article>
+        <article class="interest-card">
+            <h3>AI-native engineering</h3>
+            <p>
+                Exploring how AI can support the way we design, develop,
+                and improve software.
+            </p>
+        </article>
+
+        <article class="interest-card">
+            <h3>Practical problem solving</h3>
+            <p>
+                Turning real-world challenges into useful, accessible,
+                and maintainable solutions.
+            </p>
+        </article>
+    </div>
 </section>
 {% endblock %}
